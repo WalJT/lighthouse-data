@@ -1,0 +1,7 @@
+name: lighthouse_data
+channels:
+  - defaults
+dependencies:
+  - python
+  - pandas
+  - lxml
