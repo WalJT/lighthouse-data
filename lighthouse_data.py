@@ -17,7 +17,7 @@ for df in lighthouse_dfs.values():
 # Columns of note:
 # 	- Name at index 0
 # 	- Location Coordinates at index 2
-# 		- In the format of `Place Name Degrees Minuites Seconds N / Degrees Minuites Seconds W`
+# 		- Eg. Castletownbere 51°38′49″N 9°54′18″W﻿ / ﻿51.647°N 9.905°W
 # 	- County at index 3
 
 for _, row in lighthouse_dfs["coil"].iterrows():
