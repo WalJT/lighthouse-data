@@ -8,8 +8,17 @@ tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_lighthouses_in_Irel
 # lighthouses maintained by other Irish marine authorities, and decomissioned lightouses respectively
 
 # Select the tables for the corresponding data
-coil_lighthouse_df = tables[0]
-other_lightouse_df = tables[1]
-decomissioned_lighouse_df = tables[2]
 
-print(decomissioned_lighouse_df.columns)
+lighthouse_dfs = {"coil": tables[0], "other": tables[1], "decom": tables[2]}
+
+for df in lighthouse_dfs.values():
+	print(df.columns)
+
+# Columns of note:
+# 	- Name at index 0
+# 	- Location Coordinates at index 2
+# 		- In the format of `Place Name Degrees Minuites Seconds N / Degrees Minuites Seconds W`
+# 	- County at index 3
+
+for _, row in lighthouse_dfs["coil"].iterrows():
+	print(row["Location Coordinates"])
