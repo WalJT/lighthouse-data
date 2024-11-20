@@ -1,4 +1,10 @@
 import pandas as pd
+import datetime
+
+# Set the date the data was extracted. This could be handy to reference in the future.
+
+extracted_date = datetime.date.today()
+# print(extracted_date)
 
 # Read all tables from the Wikipedia's page on Lighthouses in Ireland
 tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_lighthouses_in_Ireland")
