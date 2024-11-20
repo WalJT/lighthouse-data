@@ -25,7 +25,7 @@ Table to generate:
 
 | **Lighthouse Name** | **Data Series** | **Location** | **Photographed** | **Date Photographed** |
 |:-------------------:|:---------------:|:------------:|:----------------:|:---------------------:|
-|        Lorem        |      Ipsum      |     Dolor    |        [ ]       |          Set          |
+|        Aleria       |       other     |   lat / lon  |        [ ]       |          YYYY-MM-DD   |
 
 """
 
