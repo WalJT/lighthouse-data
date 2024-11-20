@@ -5,7 +5,7 @@ tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_lighthouses_in_Irel
 
 # print(tables)
 # Looks like tables 0, 1 and 2 are lighthouses maintained by Commissioners of Irish Lights,
-# lighthouses maintained by other Irish marine authorities, and decomissioned lightouses respectively
+# lighthouses maintained by other Irish marine authorities, and decommissioned lighthouses respectively
 
 # Select the tables for the corresponding data
 
@@ -20,5 +20,5 @@ for df in lighthouse_dfs.values():
 # 		- Eg. Castletownbere 51°38′49″N 9°54′18″W﻿ / ﻿51.647°N 9.905°W
 # 	- County at index 3
 
-for _, row in lighthouse_dfs["coil"].iterrows():
-	print(row["Location Coordinates"])
+# for _, row in lighthouse_dfs["coil"].iterrows():
+# 	print(row["Location Coordinates"])
