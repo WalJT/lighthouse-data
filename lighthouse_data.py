@@ -20,5 +20,14 @@ for df in lighthouse_dfs.values():
 # 		- Eg. Castletownbere 51°38′49″N 9°54′18″W﻿ / ﻿51.647°N 9.905°W
 # 	- County at index 3
 
+"""
+Table to generate:
+
+| **Lighthouse Name** | **Data Series** | **Location** | **Photographed** | **Date Photographed** |
+|:-------------------:|:---------------:|:------------:|:----------------:|:---------------------:|
+|        Lorem        |      Ipsum      |     Dolor    |        [ ]       |          Set          |
+
+"""
+
 # for _, row in lighthouse_dfs["coil"].iterrows():
 # 	print(row["Location Coordinates"])
