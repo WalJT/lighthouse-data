@@ -2,7 +2,6 @@ import pandas as pd
 import datetime
 
 # Set the date the data was extracted. This could be handy to reference in the future.
-
 extracted_date = datetime.date.today()
 print(extracted_date)
 
