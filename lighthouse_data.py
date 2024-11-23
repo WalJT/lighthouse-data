@@ -4,36 +4,25 @@ import datetime
 # Set the date the data was extracted. This could be handy to reference in the future.
 
 extracted_date = datetime.date.today()
-# print(extracted_date)
+print(extracted_date)
 
 # Read all tables from the Wikipedia's page on Lighthouses in Ireland
 tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_lighthouses_in_Ireland")
 
-# print(tables)
-# Looks like tables 0, 1 and 2 are lighthouses maintained by Commissioners of Irish Lights,
-# lighthouses maintained by other Irish marine authorities, and decommissioned lighthouses respectively
-
-# Select the tables for the corresponding data
-
 lighthouse_dfs = {"coil": tables[0], "other": tables[1], "decom": tables[2]}
+important_cols = list()
 
+# Extract county and name of each lighthouse
 for df in lighthouse_dfs.values():
-	print(df.columns)
+	important_cols.append(df[["County", "Name"]])
+	
 
-# Columns of note:
-# 	- Name at index 0
-# 	- Location Coordinates at index 2
-# 		- Eg. Castletownbere 51°38′49″N 9°54′18″W﻿ / ﻿51.647°N 9.905°W
-# 	- County at index 3
+# Merge into a single data frame, add a couple of columns and sort by county
+df_merged = pd.concat(important_cols, ignore_index=True)
+df_merged["Photographed"] = "❌"
+df_merged["Blog Post"] = "Link Pending"
+df_merged = df_merged.sort_values(by="County")
 
-"""
-Table to generate:
-
-| **Lighthouse Name** | **Data Series** | **Location** | **Photographed** | **Date Photographed** |
-|:-------------------:|:---------------:|:------------:|:----------------:|:---------------------:|
-|        Aleria       |       other     |   lat / lon  |        [ ]       |          YYYY-MM-DD   |
-
-"""
-
-# for _, row in lighthouse_dfs["coil"].iterrows():
-# 	print(row["Location Coordinates"])
+# Write table to a markdown file so I can copy it to the web
+with open("lighthouse_table.md", "w", encoding="utf-8") as mdfile:
+	mdfile.write(df_merged.to_markdown(tablefmt="pipe", index=False))
