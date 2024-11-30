@@ -19,7 +19,6 @@ for df in lighthouse_dfs.values():
 # Merge into a single data frame, add a couple of columns and sort by county
 df_merged = pd.concat(important_cols, ignore_index=True)
 df_merged["Photographed"] = "❌"
-df_merged["Blog Post"] = "Link Pending"
 df_merged = df_merged.sort_values(by=["County", "Name"])
 
 # Write table to a markdown file so I can copy it to the web
