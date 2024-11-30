@@ -25,3 +25,6 @@ df_merged = df_merged.sort_values(by=["County", "Name"])
 # Write table to a markdown file so I can copy it to the web
 with open("lighthouse_table.md", "w", encoding="utf-8") as mdfile:
 	mdfile.write(df_merged.to_markdown(tablefmt="pipe", index=False))
+
+with open("lighthouse_table.html", "w", encoding="utf-8") as htmlfile:
+	htmlfile.write(df_merged.to_html(index=False))
