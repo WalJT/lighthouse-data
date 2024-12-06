@@ -14,7 +14,6 @@ important_cols = list()
 # Extract county and name of each lighthouse
 for df in lighthouse_dfs.values():
 	important_cols.append(df[["County", "Name"]])
-	
 
 # Merge into a single data frame, add a couple of columns and sort by county
 df_merged = pd.concat(important_cols, ignore_index=True)
